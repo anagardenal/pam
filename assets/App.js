@@ -8,10 +8,11 @@ export default function App() {
       <View style={estilos.card}>
         <Image
           style={estilos.imagem}
-          source="https://i.pinimg.com/736x/65/72/c8/6572c88ff52c2eef81a23c7f2642ffa8.jpg"
+          source="https://static.vecteezy.com/system/resources/previews/050/345/523/non_2x/grizzly-bear-face-free-png.png"
         />
       </View>
       <View style={estilos.infos}>
+
         <View style={estilos.social}>
           <FontAwesome5 name="facebook" size={24} color="black" />
           <FontAwesome5 name="instagram" size={24} color="black" />
@@ -19,15 +20,15 @@ export default function App() {
           <FontAwesome5 name="github" size={24} color="black" />
           <FontAwesome5 name="github" size={24} color="black" />
         </View>
-        <View style={estilos.fotos}>
-          <text>Amigos</text>
-          <Image
-          style={estilos.fotos}
-          source="https://i.pinimg.com/736x/b0/39/a4/b039a49ff7b856c800047f51a19ae9eb.jpg"/>
-        </View>
+
         <View style={estilos.texto}>
-          <text>Fotos</text>
+            <text>Fotos</text>
         </View>
+
+        <View style={estilos.fotos}>
+            <text>Amigos</text>
+        </View>
+
       </View>
     </View>
 
@@ -37,7 +38,7 @@ export default function App() {
 const estilos = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#89b4c5ff',
+    backgroundColor: '#77e4db',
     alignItems: 'center',
     paddingTop: 10
   },
@@ -68,23 +69,6 @@ const estilos = StyleSheet.create({
     justifyContent: 'space-around',
     marginTop: 125,
     padding: 20
-  },
-  texto: {
-    margin: 3,
-    width: 70,
-    height: 30,
-    borderColor: '#000',
-    borderWidth: 2.5,
-    borderStyle: 'solid',
-    borderRadius: '10%',
-    padding: 5,
-    zIndex: 1,
-    backgroundColor: '#0011ffff'
-  },
-  fotos: {
-    width: '30%',
-    height: '30%',
-    borderRadius: '50%'
   }
 
 });
