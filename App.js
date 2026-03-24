@@ -1,11 +1,16 @@
 import { Image } from 'expo-image';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+  Dimensions
+} from 'react-native';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 
-export default function App() {
-  const s_i = 22;
-  const c_i = "#94A3B8";
+const largura = Dimensions.get('window').width;
 
+export default function App() {
   const amigos = [
     { nome: 'Bruno M.', foto: 'https://i.pinimg.com/1200x/e2/fb/82/e2fb827ecfefd7f0e2df7b1d94e8626e.jpg' },
     { nome: 'Sabrina C.', foto: 'https://i.pinimg.com/736x/4e/31/ac/4e31acea8d72b9d555fd26cab6dbeee3.jpg' },
@@ -23,128 +28,109 @@ export default function App() {
   ];
 
   return (
-    <ScrollView style={estilos.container}>
+    <ScrollView style={styles.container}>
 
-      <View style={estilos.header}>
-        <Image
-          source={{ uri: 'https://i.pinimg.com/736x/d8/4d/e1/d84de1f8596f8763d6ba7362000b98d7.jpg' }}
-          style={estilos.fotoPerfil}
-        />
-        <Text style={estilos.nome}>Lady Gaga</Text>
-      </View>
-
-      <View style={estilos.social}>
-        <FontAwesome5 name="facebook" size={s_i} color={c_i} />
-        <FontAwesome5 name="instagram" size={s_i} color={c_i} />
-        <FontAwesome5 name="whatsapp" size={s_i} color={c_i} />
-        <FontAwesome5 name="github" size={s_i} color={c_i} />
-        <FontAwesome5 name="tiktok" size={s_i} color={c_i} />
-      </View>
-
-      <View style={estilos.card}>
-        <Text style={estilos.titulo}>Amigos</Text>
-
-        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-          {amigos.map((amigo, index) => (
-            <View key={index} style={estilos.amigo}>
-              <Image source={{ uri: amigo.foto }} style={estilos.fotoAmigo} />
-              <Text style={estilos.nomeAmigo}>{amigo.nome}</Text>
-            </View>
-          ))}
-        </ScrollView>
-      </View>
-
-      {/* FOTOS */}
-      <View style={estilos.card}>
-        <Text style={estilos.titulo}>Fotos</Text>
-
-        <View style={estilos.grid}>
-          {fotos.map((foto, index) => (
-            <Image key={index} source={{ uri: foto }} style={estilos.fotoGrid} />
-          ))}
+      <View style={styles.center}>
+        <View style={styles.bordaPerfil}>
+          <Image
+            source={{ uri: 'https://i.pinimg.com/736x/d8/4d/e1/d84de1f8596f8763d6ba7362000b98d7.jpg' }}
+            style={styles.perfil}
+          />
         </View>
+        <Text style={styles.nome}>Lady Gaga</Text>
+      </View>
+
+      <View style={styles.row}>
+        {['facebook', 'instagram', 'whatsapp', 'github', 'tiktok'].map((icon, i) => (
+          <FontAwesome5 key={i} name={icon} size={22} color="#94A3B8" />
+        ))}
+      </View>
+
+      <Text style={styles.titulo}>Amigos</Text>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+        {amigos.map((a, i) => (
+          <View key={i} style={styles.center}>
+            <Image source={{ uri: a.foto }} style={styles.amigo} />
+            <Text style={styles.texto}>{a.nome}</Text>
+          </View>
+        ))}
+      </ScrollView>
+
+      <Text style={styles.titulo}>Fotos</Text>
+      <View style={styles.grid}>
+        {fotos.map((f, i) => (
+          <Image key={i} source={{ uri: f }} style={styles.foto} />
+        ))}
       </View>
 
     </ScrollView>
   );
 }
 
-const estilos = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#0F172A',
   },
 
-  header: {
+  center: {
     alignItems: 'center',
-    padding: 20,
-  },
-
-  fotoPerfil: {
-    width: 120,
-    height: 120,
-    borderRadius: 60,
-    borderWidth: 3,
-    borderColor: '#38BDF8',
-  },
-
-  nome: {
-    color: '#E2E8F0',
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginTop: 10,
-  },
-
-  social: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    marginHorizontal: 20,
     marginBottom: 10,
   },
 
-  card: {
-    backgroundColor: '#1E293B',
-    margin: 15,
-    borderRadius: 15,
-    padding: 15,
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginBottom: 15,
+  },
+
+  bordaPerfil: {
+    marginTop: 20,
+    borderWidth: 4,
+    borderColor: '#38BDF8',
+    borderRadius: 70,
+    padding: 4,
+  },
+
+  perfil: {
+    width: 120,
+    height: 120,
+    borderRadius: 60,
+  },
+
+  nome: {
+    color: '#fff',
+    fontSize: 18,
+    marginTop: 5,
   },
 
   titulo: {
     color: '#38BDF8',
     fontSize: 16,
-    fontWeight: 'bold',
-    marginBottom: 10,
+    marginVertical: 10,
+    marginLeft: 10,
   },
 
   amigo: {
-    alignItems: 'center',
-    marginRight: 15,
-  },
-
-  fotoAmigo: {
     width: 60,
     height: 60,
     borderRadius: 30,
-    borderWidth: 2,
-    borderColor: '#38BDF8',
+    marginHorizontal: 8,
   },
 
-  nomeAmigo: {
-    color: '#E2E8F0',
+  texto: {
+    color: '#fff',
     fontSize: 12,
-    marginTop: 5,
   },
 
   grid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    justifyContent: 'space-between',
+    width: '100%',
   },
 
-  fotoGrid: {
-    width: '32%',
-    height: 100,
-    borderRadius: 8,
-    marginBottom: 5,
+  foto: {
+    width: largura / 3,
+    height: largura / 3,
   },
 });
