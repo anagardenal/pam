@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "@react-native-masked-view/masked-view": "0.3.2",
+    "@react-navigation/native": "^7.2.2",
+    "@react-navigation/stack": "^7.8.11",
+    "expo": "^55.0.17",
+    "react-native-gesture-handler": "~2.30.0",
+    "react-native-safe-area-context": "~5.6.2",
+    "react-native-screens": "~4.23.0"
+  }
+}
