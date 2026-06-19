@@ -1,24 +1,53 @@
 import React from 'react';
+import { View, Text } from 'react-native';
 
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Entypo, EvilIcons, MaterialCommunityIcons } from '@expo/vector-icons';
 
-import TelaInicial from './Componentes/TelaInicial';
-import TelaTrilogia1 from './Componentes/TelaTrilogia1';
-import TelaTrilogia2 from './Componentes/TelaTrilogia2';
-import TelaTrilogia3 from './Componentes/TelaTrilogia3';
-
-const Stack = createNativeStackNavigator();
+import styles from './styles/style';
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Tela Inicial" component={TelaInicial} />
-        <Stack.Screen name="Japão" component={TelaTrilogia1} />
-        <Stack.Screen name="França" component={TelaTrilogia2} />
-        <Stack.Screen name="Inglaterra" component={TelaTrilogia3} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <View style={styles.container}>
+
+      <View style={styles.card}>
+        <Text style={styles.titulo}>Entypo</Text>
+
+        <View style={styles.icones}>
+         {/* <Entypo name="home" size={30} color="darkgreen" /> */} 
+          <Entypo name="arrow-bold-down" size={30} color="pink" />
+          <Entypo name="arrow-bold-left" size={30} color="pink" />
+          <Entypo name="arrow-bold-right" size={30} color="pink" />
+          <Entypo name="chat" size={30} color="purple" />
+          <Entypo name="cloud" size={30} color="black" />
+        </View>
+      </View>
+
+      <View style={styles.card}>
+        <Text style={styles.titulo}>EvilIcons</Text>
+
+        <View style={styles.icones}>
+          <EvilIcons name="close" size={40} color="green" />
+          <EvilIcons name="location" size={40} color="darkblue" />
+          <EvilIcons name="calendar" size={40} color="pink" />
+          <EvilIcons name="star" size={40} color="red" />
+          <EvilIcons name="trash" size={40} color="gray" />
+          <EvilIcons name="search" size={40} color="gray" />
+        </View>
+      </View>
+
+      <View style={styles.card}>
+        <Text style={styles.titulo}>MaterialCommunityIcons</Text>
+
+        <View style={styles.icones}>
+          <MaterialCommunityIcons name="account" size={50} color="brown" />
+          <MaterialCommunityIcons name="clock-outline" size={50} color="purple" />
+          <MaterialCommunityIcons name="numeric-1-circle" size={50} color="green" />
+          <MaterialCommunityIcons name="reload" size={50} color="yellow" />
+          <MaterialCommunityIcons name="camera" size={50} color="dark" />
+          <MaterialCommunityIcons name="cart" size={50} color="darkblue" />
+        </View>
+      </View>
+
+    </View>
   );
 }
