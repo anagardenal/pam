@@ -21,7 +21,7 @@ export default StyleSheet.create({
   },
 
   icones: {
-    flexDirection: 'row',
+  flexDirection: 'row',
     justifyContent: 'space-around',
   },
 });

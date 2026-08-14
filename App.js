@@ -13,7 +13,6 @@ export default function App() {
         <Text style={styles.titulo}>Entypo</Text>
 
         <View style={styles.icones}>
-         {/* <Entypo name="home" size={30} color="darkgreen" /> */} 
           <Entypo name="arrow-bold-down" size={30} color="pink" />
           <Entypo name="arrow-bold-left" size={30} color="pink" />
           <Entypo name="arrow-bold-right" size={30} color="pink" />
