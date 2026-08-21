@@ -13,14 +13,14 @@ export default function ListaDeHerois() {
 
         <ItemLista
           heroi="Homem-Aranha"
-          poder="Agilidade"
-          imagem={require('../../assets/SPIDER_MAN_GALLERY_3.webp')}
+          poder="Teias"
+          imagem={require('../../assets/homemaranha2.jpg')}
         />
 
         <ItemLista
           heroi="Homem de Ferro"
           poder="Tecnologia"
-          imagem={require('../../assets/homem-do-ferro-113449201.webp')}
+          imagem={require('../../assets/homemdeferro2.webp')}
         />
 
         <ItemLista
@@ -38,7 +38,7 @@ export default function ListaDeHerois() {
         <ItemLista
           heroi="Hulk"
           poder="Superforça"
-          imagem={require('../../assets/foto-renderizada-em-3d-de-hulk.webp')}
+          imagem={require('../../assets/hulkfoto.jpg')}
         />
 
         <ItemLista
@@ -55,8 +55,8 @@ export default function ListaDeHerois() {
 
         <ItemLista
           heroi="Viúva Negra"
-          poder="Combate"
-          imagem={require('../../assets/viuvanegra2.webp')}
+          poder="Biotecnologia"
+          imagem={require('../../assets/viuvanegra2.jpg')}
         />
 
       </ScrollView>
