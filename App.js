@@ -16,39 +16,32 @@ const App = () => {
 
   const sortearNumero = () => {
 
-    if (numeroEscolhido === '') {
+  if (numeroEscolhido === '') {
       setMensagem('Digite um número entre 0 e 99.');
       return;
     }
-    //numero vazio
 
     if (numeroEscolhido < 0 || numeroEscolhido > 99) {
       setMensagem('Digite um número entre 0 e 99.');
       return;
     }
-    //numero fora de 0 e 99
 
     const novoNumero = Math.floor(Math.random() * 100);
     //0.73 × 100 = 73
-    //Crie um número inteiro aleatório entre 0 e 99 e guarde na variável novoNumero
     let diferenca;
-    //é uma variável que vou preencher depois com a distância entre o número escolhido e o número sorteado.
 
     if (numeroEscolhido > novoNumero) {
       diferenca = numeroEscolhido - novoNumero;
     } else {
       diferenca = novoNumero - numeroEscolhido;
     }
-    //if else escolhe qual número deve ficar primeiro na subtração
 
     const pontos = 100 - diferenca;
-    //quanbto menor a diferença maior é o ponto
 
     setNumeroSorteado(novoNumero);
     setUltimoNumero(novoNumero);
     setPontosRodada(pontos);
     setPontuacaoTotal(pontuacaoTotal + pontos);
-    //apenas a atualização dos dados dos conts em la em cima
 
     if (diferenca === 0) {
       setMensagem(
@@ -72,12 +65,11 @@ const App = () => {
     } else {
       setMensagem(
         'Fim de jogo! Você fez ' +
-        (pontuacaoTotal + pontos) +  //pontuação que já tinha + pontos da última rodada
+        (pontuacaoTotal + pontos) +  
         ' pontos.'
       );
     }
   };
-  //esse if ve em qual rodada o jogo ta
 
   const reiniciarJogo = () => {
 
@@ -129,7 +121,6 @@ const App = () => {
         style={estilo.campo}
         value={numeroEscolhido}
         onChangeText={setNumeroEscolhido}
-        //Toda vez que o que está escrito no campo mudar, atualize numeroEscolhido
       />
 
       <View style={estilo.botao}>
