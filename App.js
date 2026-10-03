@@ -154,7 +154,7 @@ const App = () => {
 
       <View style={estilo.botao}>
 
-        <Button
+        <Button 
           title="Jogar Novamente"
           onPress={reiniciarJogo}
         />
